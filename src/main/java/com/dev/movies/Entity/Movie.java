@@ -1,4 +1,4 @@
-package com.dev.movies;
+package com.dev.movies.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.util.List;
 
 @Data
-@Document(collection = "movies")
+@Document(collection = "movie")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
@@ -37,5 +37,14 @@ public class Movie {
     @DocumentReference
     private List<Review> reviewIds;
 
+    public Movie(String imdbId, String title, String releaseDate, String trailerLink, String poster, List<String> backdrops, List<String> genres) {
+        this.imdbId = imdbId;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.trailerLink = trailerLink;
+        this.poster = poster;
+        this.backdrops = backdrops;
+        this.genres = genres;
+    }
 }
 
